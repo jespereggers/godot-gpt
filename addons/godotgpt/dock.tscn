@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://dddny44oo2rmg"]
+
+[ext_resource type="Script" path="res://addons/godotgpt/dock.gd" id="1_s40ua"]
+[ext_resource type="Script" path="res://addons/godotgpt/api.gd" id="2_ggvy5"]
+[ext_resource type="Script" path="res://addons/godotgpt/chat.gd" id="3_3a1v3"]
+
+[node name="GodotGPT" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s40ua")
+
+[node name="api" type="Node" parent="."]
+script = ExtResource("2_ggvy5")
+
+[node name="interface" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="scroller" type="ScrollContainer" parent="interface"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="chat" type="VBoxContainer" parent="interface/scroller"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+script = ExtResource("3_3a1v3")
+
+[node name="interactions" type="VBoxContainer" parent="interface"]
+layout_mode = 2
+alignment = 2
+
+[node name="input" type="LineEdit" parent="interface/interactions"]
+layout_mode = 2
+placeholder_text = "Enter Message"
+
+[node name="send" type="Button" parent="interface/interactions"]
+layout_mode = 2
+disabled = true
+text = "Send"
+
+[connection signal="text_changed" from="interface/interactions/input" to="." method="_on_input_text_changed"]
+[connection signal="text_submitted" from="interface/interactions/input" to="." method="_on_input_text_submitted"]
+[connection signal="pressed" from="interface/interactions/send" to="." method="_on_send_pressed"]
