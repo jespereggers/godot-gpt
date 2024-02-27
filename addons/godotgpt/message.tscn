@@ -2,20 +2,15 @@
 
 [ext_resource type="Script" path="res://addons/godotgpt/message.gd" id="1_6knj5"]
 
-[node name="message" type="Label"]
+[node name="message" type="RichTextLabel"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-autowrap_mode = 3
+size_flags_horizontal = 3
+focus_mode = 2
+text = "_jjj   jj_"
+fit_content = true
+selection_enabled = true
 script = ExtResource("1_6knj5")
-
-[node name="background" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.196078)

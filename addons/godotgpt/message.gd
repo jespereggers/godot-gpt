@@ -1,5 +1,5 @@
 @tool
-extends Label
+extends RichTextLabel
 
 var content: String
 var role: String
@@ -7,7 +7,8 @@ var role: String
 func _ready():
 	text = content
 	
-	if role == "assistant":
-		$background.color.b = 0.5
+	if role == "user":
+		self.modulate.a = 0.5
 	else:
-		$background.color.b = 0.0
+		self.modulate.a = 1.0
+		
