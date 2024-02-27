@@ -13,7 +13,7 @@ config_version=5
 config/name="GodotGPTPlugin"
 run/main_scene="res://addons/godotgpt/dock.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://takelime.png"
 
 [editor_plugins]
 
