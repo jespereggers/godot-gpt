@@ -19,12 +19,21 @@ func dialogue_request(player_dialogue, settings):
 	
 	var modified_chat_history = chat_history.duplicate()
 	
-	var context_message = {
-		"role": "user",
-		"content": "Look at my currently opened GDScript written in Godot Engine:\n"
-		+ EditorInterface.get_script_editor().get_current_script().source_code + "\n"
-		+ "Please keep you answers very short and precise. "
-	}
+	var context_message: Dictionary
+	
+	if EditorInterface.get_script_editor().get_open_scripts().is_empty():
+		context_message = {
+			"role": "user",
+			"content": "I am writing GDScript in Godot Engine:\n"
+			+ "Please keep you answers very short and precise. "
+		}
+	else:
+		context_message = {
+			"role": "user",
+			"content": "Look at my currently opened GDScript written in Godot Engine:\n"
+			+ EditorInterface.get_script_editor().get_current_script().source_code + "\n"
+			+ "Please keep you answers very short and precise. "
+		}
 	
 	if chat_history.size() > 4:
 		modified_chat_history.resize(4)
