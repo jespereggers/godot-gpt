@@ -108,9 +108,11 @@ text = "Send"
 
 [node name="Label" type="Label" parent="Tabs/Chat/UIList/Footer"]
 modulate = Color(0.643137, 0.643137, 0.643137, 1)
+custom_minimum_size = Vector2(1, 1)
 layout_mode = 2
-text = "ChatGPT is always watching your currently opened script."
+text = "ChatGPT is always watching your recently opened script."
 horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="Settings" type="TabBar" parent="Tabs"]
 visible = false
