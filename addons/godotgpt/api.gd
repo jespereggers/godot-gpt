@@ -60,12 +60,13 @@ func dialogue_request(player_dialogue, settings):
 	var send_request = request.request(url, headers, HTTPClient.METHOD_POST, body)
 	
 	if send_request != OK:
+		get_parent()._on_request_completed("Sorry, there was an error sending your request.")
 		print("There was an error!")
 
 
 func _on_request_completed(result, response_code, headers, body):
 	if response_code != 200:
-		get_parent()._on_request_completed("Please enter a valid API-key in settings.")
+		get_parent()._on_request_completed("Something went wrong, maybe check settings? \nError: " + str(response_code))
 		return
 		
 	var json = JSON.new()
