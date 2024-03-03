@@ -1,7 +1,8 @@
-GitHub Copilot, but for Godot.
+Empowering developers by integrating context-aware chatbots.
 
-GodotGPT empowers you by integrating a state-of-the-art context-aware chatbot right into your programming environment - watching and helping you as you write.
+[Download Plugin](https://github.com/jespereggers/GodotGPT/files/14451669/godotgpt.zip)
 
-![takelime](https://github.com/jespereggers/GodotGPT/assets/73933309/282d4d93-b264-4dd2-9b5e-8a503dfeffcc)
-
+# Demo
 ![gpt-screenshot](https://github.com/jespereggers/GodotGPT/assets/73933309/43f29164-b59d-4f74-9eb3-755b7de2ed14)
+
+
