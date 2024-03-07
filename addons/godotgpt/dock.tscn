@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dddny44oo2rmg"]
+[gd_scene load_steps=8 format=3 uid="uid://dddny44oo2rmg"]
 
 [ext_resource type="Script" path="res://addons/godotgpt/dock.gd" id="1_s40ua"]
 [ext_resource type="Script" path="res://addons/godotgpt/api.gd" id="2_ggvy5"]
 [ext_resource type="Script" path="res://addons/godotgpt/tabs.gd" id="4_sryol"]
 [ext_resource type="Script" path="res://addons/godotgpt/Settings.gd" id="5_cfhoe"]
 [ext_resource type="Script" path="res://addons/godotgpt/messages.gd" id="5_h3u7r"]
+[ext_resource type="Texture2D" uid="uid://b6qakmjcmysa5" path="res://takelime.png" id="6_26qmc"]
 
 [sub_resource type="GDScript" id="GDScript_uv0dv"]
 script/source = "@tool
@@ -159,6 +160,86 @@ popup/item_0/text = "ChatGPT 3.5"
 popup/item_0/id = 0
 popup/item_1/text = "ChatGPT 4"
 popup/item_1/id = 1
+
+[node name="TakeLime" type="TabBar" parent="Tabs"]
+visible = false
+layout_mode = 2
+script = SubResource("GDScript_uv0dv")
+
+[node name="UIList" type="VBoxContainer" parent="Tabs/TakeLime"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Header" type="VBoxContainer" parent="Tabs/TakeLime/UIList"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Tabs/TakeLime/UIList/Header"]
+modulate = Color(0.643137, 0.643137, 0.643137, 1)
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Open Source Software developed by Jesper Eggers"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Links" type="HBoxContainer" parent="Tabs/TakeLime/UIList"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Portfolio" type="LinkButton" parent="Tabs/TakeLime/UIList/Links"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Portfolio"
+uri = "https://jespereggers.com/"
+text_direction = 1
+
+[node name="GitHub" type="LinkButton" parent="Tabs/TakeLime/UIList/Links"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "GitHub"
+uri = "https://github.com/jespereggers"
+text_direction = 1
+
+[node name="Label" type="Label" parent="Tabs/TakeLime/UIList"]
+modulate = Color(0.643137, 0.643137, 0.643137, 1)
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Made by Heart."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Footer" type="VBoxContainer" parent="Tabs/TakeLime/UIList"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/separation = 16
+
+[node name="Logo" type="TextureRect" parent="Tabs/TakeLime/UIList/Footer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_26qmc")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Tabs/TakeLime/UIList/Footer"]
+modulate = Color(0.643137, 0.643137, 0.643137, 1)
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Published by TakeLime."
+horizontal_alignment = 1
+autowrap_mode = 3
 
 [connection signal="tab_changed" from="Tabs" to="Tabs" method="_on_tab_changed"]
 [connection signal="text_changed" from="Tabs/Chat/UIList/Footer/LineEdit" to="Tabs/Chat" method="_on_input_text_changed"]
