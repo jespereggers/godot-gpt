@@ -211,14 +211,13 @@ text = "GitHub"
 uri = "https://github.com/jespereggers"
 text_direction = 1
 
-[node name="Label" type="Label" parent="Tabs/TakeLime/UIList"]
-modulate = Color(0.643137, 0.643137, 0.643137, 1)
-custom_minimum_size = Vector2(1, 1)
+[node name="X" type="LinkButton" parent="Tabs/TakeLime/UIList"]
 layout_mode = 2
-size_flags_vertical = 1
-text = "Made by Heart."
-horizontal_alignment = 1
-autowrap_mode = 3
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Connect on X"
+uri = "https://x.com/jespersny"
+text_direction = 1
 
 [node name="Footer" type="VBoxContainer" parent="Tabs/TakeLime/UIList"]
 layout_mode = 2
