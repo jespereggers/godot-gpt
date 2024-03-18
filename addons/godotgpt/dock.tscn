@@ -216,7 +216,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Connect on X"
-uri = "https://x.com/jespersny"
+uri = "https://x.com/jespereggers"
 text_direction = 1
 
 [node name="Footer" type="VBoxContainer" parent="Tabs/TakeLime/UIList"]
