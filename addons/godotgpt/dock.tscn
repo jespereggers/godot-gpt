@@ -141,6 +141,7 @@ text = "OpenAI Key"
 [node name="LineEdit" type="LineEdit" parent="Tabs/Settings/SettingsList/APIKey"]
 layout_mode = 2
 size_flags_horizontal = 3
+secret = true
 
 [node name="GPTVersion" type="HBoxContainer" parent="Tabs/Settings/SettingsList"]
 layout_mode = 2
