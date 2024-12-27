@@ -65,11 +65,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 1
+current_tab = 0
 script = ExtResource("4_sryol")
 
 [node name="Chat" type="TabBar" parent="Tabs"]
 layout_mode = 2
 script = SubResource("GDScript_uv0dv")
+metadata/_tab_index = 0
 
 [node name="ChatGPT" type="Node" parent="Tabs/Chat"]
 script = ExtResource("2_ggvy5")
@@ -119,6 +121,7 @@ autowrap_mode = 3
 visible = false
 layout_mode = 2
 script = ExtResource("5_cfhoe")
+metadata/_tab_index = 1
 
 [node name="SettingsList" type="VBoxContainer" parent="Tabs/Settings"]
 layout_mode = 1
@@ -155,10 +158,9 @@ text = "ChatGPT Version"
 [node name="Button" type="OptionButton" parent="Tabs/Settings/SettingsList/GPTVersion"]
 layout_mode = 2
 size_flags_horizontal = 3
-item_count = 2
 selected = 0
+item_count = 2
 popup/item_0/text = "ChatGPT 3.5"
-popup/item_0/id = 0
 popup/item_1/text = "ChatGPT 4"
 popup/item_1/id = 1
 
@@ -166,6 +168,7 @@ popup/item_1/id = 1
 visible = false
 layout_mode = 2
 script = SubResource("GDScript_uv0dv")
+metadata/_tab_index = 2
 
 [node name="UIList" type="VBoxContainer" parent="Tabs/TakeLime"]
 layout_mode = 1
