@@ -3,11 +3,9 @@ extends TabBar
 
 var template = {
 	"api-key": "",
-	"gpt-version": "gpt-3.5-turbo",
-	"settings-version": "1.0"
+	"settings-version": "1.2"
 }
-var gpt_versions = ["gpt-3.5-turbo", "gpt-4"]
-var settings_version = "1.0"
+var settings_version = "1.2"
 
 
 func deserialize():
@@ -21,6 +19,8 @@ func deserialize():
 			get_parent().settings = template
 	else:
 		get_parent().settings = template
+		
+	update_gpt_v()
 
 
 func serialize():
@@ -30,12 +30,17 @@ func serialize():
 
 func update_ui():
 	$SettingsList/APIKey/LineEdit.text = get_parent().settings["api-key"]
-	$SettingsList/GPTVersion/Button.selected = gpt_versions.find(get_parent().settings["gpt-version"])
+	var gpt_v_status = await get_parent().get_node("Chat/ChatGPT").get_gpt_v(get_parent().settings["api-key"])
+	
+	#if gpt_v_status:
+	#	get_parent().gpt_v = gpt_v_status
+	#	$SettingsList/GPTVersion/Label.text = "Running via " + get_parent().gpt_v
+	#else:
+#		$SettingsList/GPTVersion/Label.text = ""
 
 
 func update_local_settings_var():
 	get_parent().settings["api-key"] = $SettingsList/APIKey/LineEdit.text
-	get_parent().settings["gpt-version"] = gpt_versions[$SettingsList/GPTVersion/Button.selected]
 
 
 func _on_open():
@@ -46,3 +51,17 @@ func _on_open():
 func _on_close():
 	update_local_settings_var()
 	serialize()
+
+
+func update_gpt_v():
+	var gpt_v_status = await get_parent().get_node("Chat/ChatGPT").get_gpt_v(get_parent().settings["api-key"])
+	if gpt_v_status:
+		get_parent().gpt_v = gpt_v_status
+		$SettingsList/GPTVersion/Label.text = "Running via " + get_parent().gpt_v.to_upper()
+	else:
+		$SettingsList/GPTVersion/Label.text = ""
+		
+
+func _on_line_edit_text_submitted(new_text):
+	update_local_settings_var()
+	update_gpt_v()
